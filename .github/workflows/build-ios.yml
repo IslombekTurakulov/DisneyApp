@@ -17,7 +17,7 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v2
       with:
-        node-version: '14' # или другая версия, которую вы используете
+        node-version: '18' # или другая версия, которую вы используете
 
     - name: Install dependencies
       run: |
