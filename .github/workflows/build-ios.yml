@@ -1,0 +1,33 @@
+name: Build iOS
+
+on:
+  push:
+    branches: [ main ] # или имя вашей рабочей ветки
+  pull_request:
+    branches: [ main ] # или имя вашей рабочей ветки
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # или другая версия, которую вы используете
+
+    - name: Install dependencies
+      run: |
+        npm install
+        npm install -g react-native-cli
+        gem install cocoapods
+
+    - name: Build iOS
+      run: |
+        cd ios
+        pod install
+        cd ..
+        react-native run-ios --simulator="iPhone 11"
