@@ -2,9 +2,9 @@ name: Build iOS
 
 on:
   push:
-    branches: [ main ] # или имя вашей рабочей ветки
+    branches: [ master ] # или имя вашей рабочей ветки
   pull_request:
-    branches: [ main ] # или имя вашей рабочей ветки
+    branches: [ master ] # или имя вашей рабочей ветки
 
 jobs:
   build:
